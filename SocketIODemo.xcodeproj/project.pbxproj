@@ -14,6 +14,8 @@
 		985ADFFC28F47FF900CEA5C3 /* SocketIODemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 985ADFFA28F47FF900CEA5C3 /* SocketIODemo.xcdatamodeld */; };
 		985ADFFE28F47FFA00CEA5C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 985ADFFD28F47FFA00CEA5C3 /* Assets.xcassets */; };
 		985AE00128F47FFA00CEA5C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 985ADFFF28F47FFA00CEA5C3 /* LaunchScreen.storyboard */; };
+		985AE00A28F482B300CEA5C3 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 985AE00928F482B300CEA5C3 /* SocketIO */; };
+		985AE00C28F4838300CEA5C3 /* SocketHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985AE00B28F4838300CEA5C3 /* SocketHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,7 @@
 		985ADFFD28F47FFA00CEA5C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		985AE00028F47FFA00CEA5C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		985AE00228F47FFA00CEA5C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		985AE00B28F4838300CEA5C3 /* SocketHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				985AE00A28F482B300CEA5C3 /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +69,7 @@
 				985ADFFD28F47FFA00CEA5C3 /* Assets.xcassets */,
 				985ADFFF28F47FFA00CEA5C3 /* LaunchScreen.storyboard */,
 				985AE00228F47FFA00CEA5C3 /* Info.plist */,
+				985AE00B28F4838300CEA5C3 /* SocketHandler.swift */,
 				985ADFFA28F47FF900CEA5C3 /* SocketIODemo.xcdatamodeld */,
 			);
 			path = SocketIODemo;
@@ -86,6 +91,9 @@
 			dependencies = (
 			);
 			name = SocketIODemo;
+			packageProductDependencies = (
+				985AE00928F482B300CEA5C3 /* SocketIO */,
+			);
 			productName = SocketIODemo;
 			productReference = 985ADFEE28F47FF900CEA5C3 /* SocketIODemo.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +122,9 @@
 				Base,
 			);
 			mainGroup = 985ADFE528F47FF900CEA5C3;
+			packageReferences = (
+				985AE00828F482B300CEA5C3 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
+			);
 			productRefGroup = 985ADFEF28F47FF900CEA5C3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -142,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				985ADFF628F47FF900CEA5C3 /* ViewController.swift in Sources */,
+				985AE00C28F4838300CEA5C3 /* SocketHandler.swift in Sources */,
 				985ADFF228F47FF900CEA5C3 /* AppDelegate.swift in Sources */,
 				985ADFF428F47FF900CEA5C3 /* SceneDelegate.swift in Sources */,
 				985ADFFC28F47FF900CEA5C3 /* SocketIODemo.xcdatamodeld in Sources */,
@@ -362,6 +374,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		985AE00828F482B300CEA5C3 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		985AE00928F482B300CEA5C3 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 985AE00828F482B300CEA5C3 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
+			productName = SocketIO;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		985ADFFA28F47FF900CEA5C3 /* SocketIODemo.xcdatamodeld */ = {
