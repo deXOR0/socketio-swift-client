@@ -10,6 +10,7 @@ import UserNotifications
 
 class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     @IBOutlet weak var inviteCodeTextField: UITextField!
+    @IBOutlet weak var codingTextView: UITextView!
     @IBOutlet weak var currentRoomLabel: UILabel!
     
     let notificationCenter = UNUserNotificationCenter.current()
@@ -20,6 +21,8 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        hideKeyboardWhenTappedAround()
         
         notificationCenter.requestAuthorization(options: [.alert, .sound]) { (permissionGranted, error) in
             if (!permissionGranted) {
@@ -41,10 +44,12 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         }
         
         mSocket.on("alert") { (dataArray, ack) -> Void in
-            let msg = dataArray[0] as! String
+            print(dataArray)
+            let title = dataArray[0] as! String
+            let msg = dataArray[1] as! String
             
             let content = UNMutableNotificationContent()
-            content.title = "User joined your room"
+            content.title = title
             content.body = msg
             
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
@@ -71,15 +76,30 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     }
     
     @IBAction func runCodeButtonPressed(_ sender: UIButton) {
-        mSocket.emit("run code", roomCode)
+        guard let coding = codingTextView.text else {
+            return
+        }
+        if coding != "" {
+            mSocket.emit("run code", roomCode, coding)
+        }
     }
     
     @IBAction func submitCodeButtonPressed(_ sender: UIButton) {
-        mSocket.emit("submit code", roomCode)
+        guard let coding = codingTextView.text else {
+            return
+        }
+        if coding != "" {
+            mSocket.emit("submit code", roomCode, coding)
+        }
     }
     
     @IBAction func generateNewRoomButtonPressed(_ sender: UIButton) {
         mSocket.emit("create");
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {

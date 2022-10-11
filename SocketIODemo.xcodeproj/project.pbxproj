@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9850148028F53D4C005F9B7A /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9850147F28F53D4C005F9B7A /* HideKeyboard.swift */; };
 		985ADFF228F47FF900CEA5C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985ADFF128F47FF900CEA5C3 /* AppDelegate.swift */; };
 		985ADFF428F47FF900CEA5C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985ADFF328F47FF900CEA5C3 /* SceneDelegate.swift */; };
 		985ADFF628F47FF900CEA5C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985ADFF528F47FF900CEA5C3 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9850147F28F53D4C005F9B7A /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
 		985ADFEE28F47FF900CEA5C3 /* SocketIODemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocketIODemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		985ADFF128F47FF900CEA5C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		985ADFF328F47FF900CEA5C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				985ADFF128F47FF900CEA5C3 /* AppDelegate.swift */,
 				985ADFF328F47FF900CEA5C3 /* SceneDelegate.swift */,
 				985ADFF528F47FF900CEA5C3 /* ViewController.swift */,
+				9850147F28F53D4C005F9B7A /* HideKeyboard.swift */,
 				985ADFF728F47FF900CEA5C3 /* Main.storyboard */,
 				985ADFFD28F47FFA00CEA5C3 /* Assets.xcassets */,
 				985ADFFF28F47FFA00CEA5C3 /* LaunchScreen.storyboard */,
@@ -156,6 +159,7 @@
 				985AE00C28F4838300CEA5C3 /* SocketHandler.swift in Sources */,
 				985ADFF228F47FF900CEA5C3 /* AppDelegate.swift in Sources */,
 				985ADFF428F47FF900CEA5C3 /* SceneDelegate.swift in Sources */,
+				9850148028F53D4C005F9B7A /* HideKeyboard.swift in Sources */,
 				985ADFFC28F47FF900CEA5C3 /* SocketIODemo.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
