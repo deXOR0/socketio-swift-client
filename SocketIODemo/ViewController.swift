@@ -24,6 +24,8 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         
         hideKeyboardWhenTappedAround()
         
+        codingTextView.smartQuotesType = .no
+        
         notificationCenter.requestAuthorization(options: [.alert, .sound]) { (permissionGranted, error) in
             if (!permissionGranted) {
                 print("Permission Denied!")
