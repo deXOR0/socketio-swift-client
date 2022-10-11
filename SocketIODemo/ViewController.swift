@@ -62,8 +62,12 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     }
     
     @IBAction func joinRoomButtonPressed(_ sender: UIButton) {
-        let inviteCode = inviteCodeTextField.text
-        mSocket.emit("join", inviteCode!)
+        guard let inviteCode = inviteCodeTextField.text else {
+            return
+        }
+        if inviteCode != "" {
+            mSocket.emit("join", inviteCode)
+        }
     }
     
     @IBAction func runCodeButtonPressed(_ sender: UIButton) {
