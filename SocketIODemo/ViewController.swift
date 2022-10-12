@@ -11,6 +11,8 @@ import UserNotifications
 class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     @IBOutlet weak var inviteCodeTextField: UITextField!
     @IBOutlet weak var codingTextView: UITextView!
+    @IBOutlet weak var outputTextView: UITextView!
+    @IBOutlet weak var inputTextView: UITextView!
     @IBOutlet weak var currentRoomLabel: UILabel!
     
     let notificationCenter = UNUserNotificationCenter.current()
@@ -23,8 +25,6 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         // Do any additional setup after loading the view.
         
         hideKeyboardWhenTappedAround()
-        
-        codingTextView.smartQuotesType = .no
         
         notificationCenter.requestAuthorization(options: [.alert, .sound]) { (permissionGranted, error) in
             if (!permissionGranted) {
@@ -43,6 +43,11 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
             self.roomCode = inviteCode
             self.currentRoomLabel.text = "Current Room: \(inviteCode)"
             self.inviteCodeTextField.text = inviteCode
+        }
+        
+        mSocket.on("output") { (dataArray, ack) -> Void in
+            let output = dataArray[0] as! String
+            self.outputTextView.text = output
         }
         
         mSocket.on("alert") { (dataArray, ack) -> Void in
@@ -81,8 +86,9 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         guard let coding = codingTextView.text else {
             return
         }
+        let input = inputTextView.text ?? ""
         if coding != "" {
-            mSocket.emit("run code", roomCode, coding)
+            mSocket.emit("run code", roomCode, coding, input)
         }
     }
     
@@ -90,8 +96,9 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         guard let coding = codingTextView.text else {
             return
         }
+        let input = inputTextView.text ?? ""
         if coding != "" {
-            mSocket.emit("submit code", roomCode, coding)
+            mSocket.emit("submit code", roomCode, coding, input)
         }
     }
     
