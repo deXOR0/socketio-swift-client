@@ -83,6 +83,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     }
     
     @IBAction func runCodeButtonPressed(_ sender: UIButton) {
+        outputTextView.text = ""
         guard let coding = codingTextView.text else {
             return
         }
@@ -93,6 +94,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     }
     
     @IBAction func submitCodeButtonPressed(_ sender: UIButton) {
+        outputTextView.text = ""
         guard let coding = codingTextView.text else {
             return
         }
