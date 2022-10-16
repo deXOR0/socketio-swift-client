@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		981FD3CC28FC3C9600D37647 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981FD3CB28FC3C9600D37647 /* User.swift */; };
+		983FE17728FC385C004603DB /* Auth0 in Frameworks */ = {isa = PBXBuildFile; productRef = 983FE17628FC385C004603DB /* Auth0 */; };
+		983FE17928FC388B004603DB /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 983FE17828FC388B004603DB /* Auth0.plist */; };
+		983FE17B28FC38E8004603DB /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 983FE17A28FC38E8004603DB /* Login.storyboard */; };
+		983FE17D28FC3963004603DB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983FE17C28FC3963004603DB /* LoginViewController.swift */; };
 		9850148028F53D4C005F9B7A /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9850147F28F53D4C005F9B7A /* HideKeyboard.swift */; };
 		985ADFF228F47FF900CEA5C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985ADFF128F47FF900CEA5C3 /* AppDelegate.swift */; };
 		985ADFF428F47FF900CEA5C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985ADFF328F47FF900CEA5C3 /* SceneDelegate.swift */; };
@@ -17,9 +22,14 @@
 		985AE00128F47FFA00CEA5C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 985ADFFF28F47FFA00CEA5C3 /* LaunchScreen.storyboard */; };
 		985AE00A28F482B300CEA5C3 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 985AE00928F482B300CEA5C3 /* SocketIO */; };
 		985AE00C28F4838300CEA5C3 /* SocketHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985AE00B28F4838300CEA5C3 /* SocketHandler.swift */; };
+		98E8BDE228FC47CC00E9D159 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E8BDE128FC47CC00E9D159 /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		981FD3CB28FC3C9600D37647 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		983FE17828FC388B004603DB /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
+		983FE17A28FC38E8004603DB /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		983FE17C28FC3963004603DB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9850147F28F53D4C005F9B7A /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
 		985ADFEE28F47FF900CEA5C3 /* SocketIODemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocketIODemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		985ADFF128F47FF900CEA5C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -31,6 +41,7 @@
 		985AE00028F47FFA00CEA5C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		985AE00228F47FFA00CEA5C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		985AE00B28F4838300CEA5C3 /* SocketHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketHandler.swift; sourceTree = "<group>"; };
+		98E8BDE128FC47CC00E9D159 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +50,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				985AE00A28F482B300CEA5C3 /* SocketIO in Frameworks */,
+				983FE17728FC385C004603DB /* Auth0 in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,11 +79,16 @@
 				985ADFF128F47FF900CEA5C3 /* AppDelegate.swift */,
 				985ADFF328F47FF900CEA5C3 /* SceneDelegate.swift */,
 				985ADFF528F47FF900CEA5C3 /* ViewController.swift */,
+				98E8BDE128FC47CC00E9D159 /* UIImageView+Extension.swift */,
 				9850147F28F53D4C005F9B7A /* HideKeyboard.swift */,
+				983FE17C28FC3963004603DB /* LoginViewController.swift */,
+				983FE17A28FC38E8004603DB /* Login.storyboard */,
 				985ADFF728F47FF900CEA5C3 /* Main.storyboard */,
+				981FD3CB28FC3C9600D37647 /* User.swift */,
 				985ADFFD28F47FFA00CEA5C3 /* Assets.xcassets */,
 				985ADFFF28F47FFA00CEA5C3 /* LaunchScreen.storyboard */,
 				985AE00228F47FFA00CEA5C3 /* Info.plist */,
+				983FE17828FC388B004603DB /* Auth0.plist */,
 				985AE00B28F4838300CEA5C3 /* SocketHandler.swift */,
 				985ADFFA28F47FF900CEA5C3 /* SocketIODemo.xcdatamodeld */,
 			);
@@ -96,6 +113,7 @@
 			name = SocketIODemo;
 			packageProductDependencies = (
 				985AE00928F482B300CEA5C3 /* SocketIO */,
+				983FE17628FC385C004603DB /* Auth0 */,
 			);
 			productName = SocketIODemo;
 			productReference = 985ADFEE28F47FF900CEA5C3 /* SocketIODemo.app */;
@@ -127,6 +145,7 @@
 			mainGroup = 985ADFE528F47FF900CEA5C3;
 			packageReferences = (
 				985AE00828F482B300CEA5C3 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
+				983FE17528FC385C004603DB /* XCRemoteSwiftPackageReference "Auth0" */,
 			);
 			productRefGroup = 985ADFEF28F47FF900CEA5C3 /* Products */;
 			projectDirPath = "";
@@ -145,6 +164,8 @@
 				985AE00128F47FFA00CEA5C3 /* LaunchScreen.storyboard in Resources */,
 				985ADFFE28F47FFA00CEA5C3 /* Assets.xcassets in Resources */,
 				985ADFF928F47FF900CEA5C3 /* Main.storyboard in Resources */,
+				983FE17B28FC38E8004603DB /* Login.storyboard in Resources */,
+				983FE17928FC388B004603DB /* Auth0.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,9 +176,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				983FE17D28FC3963004603DB /* LoginViewController.swift in Sources */,
 				985ADFF628F47FF900CEA5C3 /* ViewController.swift in Sources */,
 				985AE00C28F4838300CEA5C3 /* SocketHandler.swift in Sources */,
+				98E8BDE228FC47CC00E9D159 /* UIImageView+Extension.swift in Sources */,
 				985ADFF228F47FF900CEA5C3 /* AppDelegate.swift in Sources */,
+				981FD3CC28FC3C9600D37647 /* User.swift in Sources */,
 				985ADFF428F47FF900CEA5C3 /* SceneDelegate.swift in Sources */,
 				9850148028F53D4C005F9B7A /* HideKeyboard.swift in Sources */,
 				985ADFFC28F47FF900CEA5C3 /* SocketIODemo.xcdatamodeld in Sources */,
@@ -382,6 +406,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		983FE17528FC385C004603DB /* XCRemoteSwiftPackageReference "Auth0" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/Auth0.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		985AE00828F482B300CEA5C3 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
@@ -393,6 +425,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		983FE17628FC385C004603DB /* Auth0 */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 983FE17528FC385C004603DB /* XCRemoteSwiftPackageReference "Auth0" */;
+			productName = Auth0;
+		};
 		985AE00928F482B300CEA5C3 /* SocketIO */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 985AE00828F482B300CEA5C3 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;

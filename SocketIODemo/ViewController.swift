@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Auth0
 import UserNotifications
 
 class ViewController: UIViewController, UNUserNotificationCenterDelegate {
@@ -13,10 +14,14 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     @IBOutlet weak var codingTextView: UITextView!
     @IBOutlet weak var outputTextView: UITextView!
     @IBOutlet weak var inputTextView: UITextView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var currentRoomLabel: UILabel!
     
     let notificationCenter = UNUserNotificationCenter.current()
-    
+    let userDefaults = UserDefaults.standard
+
+    var user: User = User(id: "", accessToken: "", name: "", nickname: "", picture: "", email: "")
     var roomCode = ""
     var mSocket = SocketHandler.sharedInstance.getSocket()
     
@@ -25,6 +30,26 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         // Do any additional setup after loading the view.
         
         hideKeyboardWhenTappedAround()
+        
+        if let data = self.userDefaults.data(forKey: "User") {
+            do {
+                let decoder = JSONDecoder()
+                let user = try decoder.decode(User.self, from: data)
+                self.user.id = user.id
+                self.user.accessToken = user.accessToken
+                self.user.name = user.name
+                self.user.nickname = user.nickname
+                self.user.picture = user.picture
+                self.user.email = user.email
+            }
+            catch {
+                
+            }
+        }
+        
+        self.usernameLabel.text = self.user.name
+        self.profilePicture.load(url: URL(string: self.user.picture)!)
+        
         
         notificationCenter.requestAuthorization(options: [.alert, .sound]) { (permissionGranted, error) in
             if (!permissionGranted) {
@@ -73,6 +98,20 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         
     }
     
+    @IBAction func logoutButtonPressed(_ sender: UIButton) {
+        Auth0
+            .webAuth()
+            .clearSession { result in
+                switch result {
+                case .success:
+                    print("Logged out")
+                    self.performSegue(withIdentifier: "unwindToLogin", sender: self)
+                case .failure(let error):
+                    print("Failed with: \(error)")
+            }
+        }
+    }
+    
     @IBAction func joinRoomButtonPressed(_ sender: UIButton) {
         guard let inviteCode = inviteCodeTextField.text else {
             return
@@ -119,4 +158,5 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     }
     
 }
+
 
