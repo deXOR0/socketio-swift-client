@@ -12,6 +12,7 @@ import JWTDecode
 class LoginViewController: UIViewController {
     
     let userDefaults: UserDefaults = UserDefaults.standard
+    let credentialManager: CredentialHandler = CredentialHandler.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,28 +23,21 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonClicked(_ sender: UIButton) {
         Auth0
             .webAuth()
+            .audience("http://localhost:3000/invite")
             .start { result in
                 switch result {
                 case .success(let credentials):
                     print("Obtained credentials: \(credentials)")
-                    guard let jwt = try? decode(jwt: credentials.idToken),
-                          let name = jwt["name"].string,
-                          let nickname = jwt["nickname"].string,
-                          let picture = jwt["picture"].string,
-                          let email = jwt["email"].string
-                    else { return }
-                    let id = credentials.idToken
-                    let accessToken = credentials.accessToken
-                    let user = User(id: id, accessToken: accessToken, name: name, nickname: nickname, picture: picture, email: email)
-                    do {
-                        let encoder = JSONEncoder()
-                        let data = try encoder.encode(user)
-                        self.userDefaults.set(data, forKey: "User")
+                    print("Store credential: \(self.credentialManager.storeCredentials(credentials: credentials))")
+                    self.credentialManager.retrieveStoredCredentials { error in
+                        DispatchQueue.main.async {
+                            guard error == nil else {
+                                print(String(describing: error))
+                                return
+                            }
+                            self.performSegue(withIdentifier: "gotoMain", sender: nil)
+                        }
                     }
-                    catch {
-                        
-                    }
-                    self.performSegue(withIdentifier: "gotoMain", sender: nil)
                 case .failure(let error):
                     print("Failed with: \(error)")
                 }
@@ -61,6 +55,7 @@ class LoginViewController: UIViewController {
                     print("Failed with: \(error)")
                 }
             }
+        credentialManager.logout()
     }
     
     @IBAction func unwind( _ seg: UIStoryboardSegue) {}

@@ -20,8 +20,9 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     let notificationCenter = UNUserNotificationCenter.current()
     let userDefaults = UserDefaults.standard
+    let credentialHandler = CredentialHandler.sharedInstance
 
-    var user: User = User(id: "", accessToken: "", name: "", nickname: "", picture: "", email: "")
+    var user: User?
     var roomCode = ""
     var mSocket = SocketHandler.sharedInstance.getSocket()
     
@@ -31,24 +32,12 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         
         hideKeyboardWhenTappedAround()
         
-        if let data = self.userDefaults.data(forKey: "User") {
-            do {
-                let decoder = JSONDecoder()
-                let user = try decoder.decode(User.self, from: data)
-                self.user.id = user.id
-                self.user.accessToken = user.accessToken
-                self.user.name = user.name
-                self.user.nickname = user.nickname
-                self.user.picture = user.picture
-                self.user.email = user.email
-            }
-            catch {
-                
-            }
-        }
+        let credentials = credentialHandler.storedCredentials
+        print("STORED \(credentials)")
+        self.user = User(credentials: credentials!)
         
-        self.usernameLabel.text = self.user.name
-        self.profilePicture.load(url: URL(string: self.user.picture)!)
+        self.usernameLabel.text = self.user?.name
+        self.profilePicture.load(url: URL(string: self.user!.picture)!)
         
         
         notificationCenter.requestAuthorization(options: [.alert, .sound]) { (permissionGranted, error) in
@@ -60,7 +49,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         UNUserNotificationCenter.current().delegate = self
         
         // The follwing line connects the IOS app to the server.
-        SocketHandler.sharedInstance.establishConnection()
+        SocketHandler.sharedInstance.establishConnection(token: self.user!.accessToken)
         
         
         mSocket.on("room joined") { (dataArray, ack) -> Void in
@@ -110,6 +99,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
                     print("Failed with: \(error)")
             }
         }
+        credentialHandler.logout()
     }
     
     @IBAction func joinRoomButtonPressed(_ sender: UIButton) {

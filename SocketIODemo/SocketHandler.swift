@@ -8,7 +8,8 @@
 import Foundation
 import SocketIO
 
-class SocketHandler: NSObject {    static let sharedInstance = SocketHandler()
+class SocketHandler: NSObject {
+    static let sharedInstance = SocketHandler()
     let socket = SocketManager(socketURL: URL(string: "http://localhost:3000")!, config: [.log(true), .compress])
     var mSocket: SocketIOClient!
 
@@ -21,8 +22,8 @@ class SocketHandler: NSObject {    static let sharedInstance = SocketHandler()
         return mSocket
     }
 
-    func establishConnection() {
-        mSocket.connect()
+    func establishConnection(token: String) {
+        mSocket.connect(withPayload: ["token": "Bearer \(token)"])
     }
 
     func closeConnection() {

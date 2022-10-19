@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import Auth0
+import JWTDecode
 
-struct User: Codable {
+struct User {
     var id: String
     var accessToken: String
     var name: String
@@ -15,12 +17,32 @@ struct User: Codable {
     var picture: String
     var email: String
     
-    enum CodingKeys: String, CodingKey {
-        case id
-        case accessToken
-        case name
-        case nickname
-        case picture
-        case email
+    init(credentials: Credentials) {
+        if let jwt = try? decode(jwt: credentials.idToken) {
+            self.name = jwt["name"].string!
+            self.nickname = jwt["nickname"].string!
+            self.picture = jwt["picture"].string!
+            self.email = jwt["email"].string!
+            
+            self.id = credentials.idToken
+            self.accessToken = credentials.accessToken
+        }
+        else {
+            self.name = "NoAuth"
+            self.nickname = "NoAuth"
+            self.picture = "NoAuth"
+            self.email = "NoAuth"
+            self.id = "NoAuth"
+            self.accessToken = "NoAuth"
+        }
     }
+    
+//    enum CodingKeys: String, CodingKey {
+//        case id
+//        case accessToken
+//        case name
+//        case nickname
+//        case picture
+//        case email
+//    }
 }

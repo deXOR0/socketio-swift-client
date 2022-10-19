@@ -22,6 +22,7 @@
 		985AE00128F47FFA00CEA5C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 985ADFFF28F47FFA00CEA5C3 /* LaunchScreen.storyboard */; };
 		985AE00A28F482B300CEA5C3 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 985AE00928F482B300CEA5C3 /* SocketIO */; };
 		985AE00C28F4838300CEA5C3 /* SocketHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985AE00B28F4838300CEA5C3 /* SocketHandler.swift */; };
+		98BB52062900082C0093D88F /* CredentialHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BB52052900082C0093D88F /* CredentialHandler.swift */; };
 		98E8BDE228FC47CC00E9D159 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E8BDE128FC47CC00E9D159 /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		985AE00028F47FFA00CEA5C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		985AE00228F47FFA00CEA5C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		985AE00B28F4838300CEA5C3 /* SocketHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketHandler.swift; sourceTree = "<group>"; };
+		98BB52052900082C0093D88F /* CredentialHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialHandler.swift; sourceTree = "<group>"; };
 		98E8BDE128FC47CC00E9D159 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,17 +81,18 @@
 				985ADFF128F47FF900CEA5C3 /* AppDelegate.swift */,
 				985ADFF328F47FF900CEA5C3 /* SceneDelegate.swift */,
 				985ADFF528F47FF900CEA5C3 /* ViewController.swift */,
+				983FE17C28FC3963004603DB /* LoginViewController.swift */,
 				98E8BDE128FC47CC00E9D159 /* UIImageView+Extension.swift */,
 				9850147F28F53D4C005F9B7A /* HideKeyboard.swift */,
-				983FE17C28FC3963004603DB /* LoginViewController.swift */,
+				98BB52052900082C0093D88F /* CredentialHandler.swift */,
+				985AE00B28F4838300CEA5C3 /* SocketHandler.swift */,
+				981FD3CB28FC3C9600D37647 /* User.swift */,
 				983FE17A28FC38E8004603DB /* Login.storyboard */,
 				985ADFF728F47FF900CEA5C3 /* Main.storyboard */,
-				981FD3CB28FC3C9600D37647 /* User.swift */,
-				985ADFFD28F47FFA00CEA5C3 /* Assets.xcassets */,
 				985ADFFF28F47FFA00CEA5C3 /* LaunchScreen.storyboard */,
+				985ADFFD28F47FFA00CEA5C3 /* Assets.xcassets */,
 				985AE00228F47FFA00CEA5C3 /* Info.plist */,
 				983FE17828FC388B004603DB /* Auth0.plist */,
-				985AE00B28F4838300CEA5C3 /* SocketHandler.swift */,
 				985ADFFA28F47FF900CEA5C3 /* SocketIODemo.xcdatamodeld */,
 			);
 			path = SocketIODemo;
@@ -182,6 +185,7 @@
 				98E8BDE228FC47CC00E9D159 /* UIImageView+Extension.swift in Sources */,
 				985ADFF228F47FF900CEA5C3 /* AppDelegate.swift in Sources */,
 				981FD3CC28FC3C9600D37647 /* User.swift in Sources */,
+				98BB52062900082C0093D88F /* CredentialHandler.swift in Sources */,
 				985ADFF428F47FF900CEA5C3 /* SceneDelegate.swift in Sources */,
 				9850148028F53D4C005F9B7A /* HideKeyboard.swift in Sources */,
 				985ADFFC28F47FF900CEA5C3 /* SocketIODemo.xcdatamodeld in Sources */,
