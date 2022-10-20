@@ -12,7 +12,7 @@
 		983FE17928FC388B004603DB /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 983FE17828FC388B004603DB /* Auth0.plist */; };
 		983FE17B28FC38E8004603DB /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 983FE17A28FC38E8004603DB /* Login.storyboard */; };
 		983FE17D28FC3963004603DB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983FE17C28FC3963004603DB /* LoginViewController.swift */; };
-		9850148028F53D4C005F9B7A /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9850147F28F53D4C005F9B7A /* HideKeyboard.swift */; };
+		9850148028F53D4C005F9B7A /* HideKeyboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9850147F28F53D4C005F9B7A /* HideKeyboard+Extension.swift */; };
 		985ADFF228F47FF900CEA5C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985ADFF128F47FF900CEA5C3 /* AppDelegate.swift */; };
 		985ADFF428F47FF900CEA5C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985ADFF328F47FF900CEA5C3 /* SceneDelegate.swift */; };
 		985ADFF628F47FF900CEA5C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985ADFF528F47FF900CEA5C3 /* ViewController.swift */; };
@@ -31,7 +31,7 @@
 		983FE17828FC388B004603DB /* Auth0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 		983FE17A28FC38E8004603DB /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		983FE17C28FC3963004603DB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		9850147F28F53D4C005F9B7A /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
+		9850147F28F53D4C005F9B7A /* HideKeyboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HideKeyboard+Extension.swift"; sourceTree = "<group>"; };
 		985ADFEE28F47FF900CEA5C3 /* SocketIODemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocketIODemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		985ADFF128F47FF900CEA5C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		985ADFF328F47FF900CEA5C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,24 +78,64 @@
 		985ADFF028F47FF900CEA5C3 /* SocketIODemo */ = {
 			isa = PBXGroup;
 			children = (
+				986643282900EBB000E76401 /* Models */,
+				986643272900EB9B00E76401 /* Handlers */,
+				986643262900EB8900E76401 /* Extensions */,
+				986643252900EB8000E76401 /* Views */,
+				986643242900EB7500E76401 /* ViewControllers */,
 				985ADFF128F47FF900CEA5C3 /* AppDelegate.swift */,
 				985ADFF328F47FF900CEA5C3 /* SceneDelegate.swift */,
-				985ADFF528F47FF900CEA5C3 /* ViewController.swift */,
-				983FE17C28FC3963004603DB /* LoginViewController.swift */,
-				98E8BDE128FC47CC00E9D159 /* UIImageView+Extension.swift */,
-				9850147F28F53D4C005F9B7A /* HideKeyboard.swift */,
-				98BB52052900082C0093D88F /* CredentialHandler.swift */,
-				985AE00B28F4838300CEA5C3 /* SocketHandler.swift */,
-				981FD3CB28FC3C9600D37647 /* User.swift */,
-				983FE17A28FC38E8004603DB /* Login.storyboard */,
-				985ADFF728F47FF900CEA5C3 /* Main.storyboard */,
-				985ADFFF28F47FFA00CEA5C3 /* LaunchScreen.storyboard */,
 				985ADFFD28F47FFA00CEA5C3 /* Assets.xcassets */,
 				985AE00228F47FFA00CEA5C3 /* Info.plist */,
 				983FE17828FC388B004603DB /* Auth0.plist */,
 				985ADFFA28F47FF900CEA5C3 /* SocketIODemo.xcdatamodeld */,
 			);
 			path = SocketIODemo;
+			sourceTree = "<group>";
+		};
+		986643242900EB7500E76401 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				985ADFF528F47FF900CEA5C3 /* ViewController.swift */,
+				983FE17C28FC3963004603DB /* LoginViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		986643252900EB8000E76401 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				983FE17A28FC38E8004603DB /* Login.storyboard */,
+				985ADFF728F47FF900CEA5C3 /* Main.storyboard */,
+				985ADFFF28F47FFA00CEA5C3 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		986643262900EB8900E76401 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				98E8BDE128FC47CC00E9D159 /* UIImageView+Extension.swift */,
+				9850147F28F53D4C005F9B7A /* HideKeyboard+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		986643272900EB9B00E76401 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				985AE00B28F4838300CEA5C3 /* SocketHandler.swift */,
+				98BB52052900082C0093D88F /* CredentialHandler.swift */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		986643282900EBB000E76401 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				981FD3CB28FC3C9600D37647 /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,7 +227,7 @@
 				981FD3CC28FC3C9600D37647 /* User.swift in Sources */,
 				98BB52062900082C0093D88F /* CredentialHandler.swift in Sources */,
 				985ADFF428F47FF900CEA5C3 /* SceneDelegate.swift in Sources */,
-				9850148028F53D4C005F9B7A /* HideKeyboard.swift in Sources */,
+				9850148028F53D4C005F9B7A /* HideKeyboard+Extension.swift in Sources */,
 				985ADFFC28F47FF900CEA5C3 /* SocketIODemo.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
